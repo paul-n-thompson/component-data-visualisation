@@ -74,7 +74,7 @@
                         edge = [];
                     //Determines relative starting points to make middle element appear in middle of container.
                     var xPos = document.getElementById("graphContainer").clientWidth/2 - (jsonObj.nodes.length*rectWidth)+.5* rectWidth,
-                        yPos = (document.getElementById("graphContainer").clientHeight)*.5 - .5*rectHeight;
+                        yPos = (document.getElementById("graphContainer").clientHeight)*.5 - .5*rectHeight-document.getElementById("heading").clientHeight;
                     var lEnclosure = '[ ';
                     var rEnclosure = ' ]';
 
