@@ -116,6 +116,9 @@
                             if (event.target === save){
                                 val = document.getElementById('componentInput').value + '\n' + lEnclosure + document.getElementById('behaviourInput').value + rEnclosure;
                                 graph.getModel().setValue(curCell,val);
+                                curObj.component = document.getElementById('componentInput').value;
+                                curObj.behaviour = document.getElementById('behaviourInput').value;
+                                curObj.type = document.getElementById('typeInput').value;
                                 modal.style.display = "none";
                             }
                             else if (event.target === modal || event.target === close || event.target === dismiss){
