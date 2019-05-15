@@ -10,14 +10,14 @@
         if (!mxClient.isBrowserSupported())
         {
             // Displays an error message if the browser is not supported.
-            mxUtils.error('Browser is not supported!', 200, false);
+            mxUtils.error("Browser is not supported!", 200, false);
         }
         else
         {
             // Creates the graph inside the document container.
             // Initialises clickable elements
             var graph = new mxGraph(container);
-            var modal = document.getElementById('nodeModal');
+            var modal = document.getElementById("nodeModal");
             var save = document.getElementById("saveNode");
             var close = document.getElementsByClassName("btn btn-secondary")[0];
             var dismiss = document.getElementsByClassName("dismiss")[0];
@@ -33,12 +33,12 @@
 
             // Initialise style of Vertices
             var style = graph.getStylesheet().getDefaultVertexStyle();
-            style[mxConstants.STYLE_SHAPE] = 'box';
+            style[mxConstants.STYLE_SHAPE] = "box";
             style[mxConstants.STYLE_FILLCOLOR] = '#A8DDB5';
             style[mxConstants.OUTLINE_STROKEWIDTH] = 2;
             style[mxConstants.STYLE_STROKECOLOR] = '#FFFFFF';
             style[mxConstants.STYLE_SHADOW] = true;
-            style[mxConstants.STYLE_WHITE_SPACE] = 'wrap';
+            style[mxConstants.STYLE_WHITE_SPACE] = "wrap";
             style[mxConstants.STYLE_FONTCOLOR] = '#FFFFFF';
             style[mxConstants.DEFAULT_FONTSTYLE] = 0;
 
@@ -74,7 +74,7 @@
                         edge = [];
                     //Determines relative starting points to make middle element appear in middle of container.
                     var xPos = document.getElementById("graphContainer").clientWidth/2 - (jsonObj.nodes.length*rectWidth)+.5* rectWidth,
-                        yPos = (document.getElementById("graphContainer").clientHeight)*.5 - .5*rectHeight;
+                        yPos = (document.getElementById("graphContainer").clientHeight)*.5 - .5*rectHeight-document.getElementById("heading").clientHeight;
                     var lEnclosure = '[ ';
                     var rEnclosure = ' ]';
 
@@ -114,11 +114,11 @@
                         //When save button is clicked updates the vertex's value based on input
                         window.onclick = function(event) {
                             if (event.target === save){
-                                val = document.getElementById('componentInput').value + '\n' + lEnclosure + document.getElementById('behaviourInput').value + rEnclosure;
+                                val = document.getElementById("componentInput").value + '\n' + lEnclosure + document.getElementById("behaviourInput").value + rEnclosure;
                                 graph.getModel().setValue(curCell,val);
-                                curObj.component = document.getElementById('componentInput').value;
-                                curObj.behaviour = document.getElementById('behaviourInput').value;
-                                curObj.type = document.getElementById('typeInput').value;
+                                curObj.component = document.getElementById("componentInput").value;
+                                curObj.behaviour = document.getElementById("behaviourInput").value;
+                                curObj.type = document.getElementById("typeInput").value;
                                 modal.style.display = "none";
                             }
                             else if (event.target === modal || event.target === close || event.target === dismiss){
